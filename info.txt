@@ -1,0 +1,364 @@
+Q 1.Compare the common features and differences in function syntax among the following languages:
+    JavaScript, TypeScript, Dart, PHP, Java, Kotlin, C, C++, Objective-C, Swift, and Golang.
+    Include information about function syntax, parameters,
+    reference/value parameters, return values, and other relevant details.
+
+   JavaScript:
+   Function Syntax: Function declaration (function functionName(parameters) { ... }),
+   function expression (var functionName = function(parameters) { ... }), and arrow function ((parameters) => { ... }).
+   Parameters: JavaScript functions can have named parameters passed in the function declaration or accessed using the arguments object.
+   Reference/Value Parameters: JavaScript passes parameters by value, except for objects and arrays which are passed by reference.
+   Return Values: Functions can return values using the return statement. If no value is specified, the function returns undefined.
+
+   TypeScript:
+   TypeScript shares similar function syntax with JavaScript, but with added static typing support.
+   It allows you to specify parameter types and return types.
+
+   Dart:
+   Function Syntax: Function declaration (returnType functionName(parameters) { ... }) and arrow function ((parameters) => expression).
+   Parameters: Dart functions declare named parameters within parentheses.
+   Reference/Value Parameters: Dart passes parameters by reference.
+   Return Values: Functions specify the return type using the returnType keyword and return values using the return statement.
+
+   PHP:
+   Function Syntax: Function declaration (function functionName(parameters) { ... }).
+   Parameters: PHP functions declare named parameters within parentheses.
+   Reference/Value Parameters: PHP passes parameters by value by default, but you can use the & symbol to pass parameters by reference.
+   Return Values: Functions can return values using the return statement. If no value is specified, the function returns null.
+
+   Java:
+   Function Syntax: Method declaration within a class (returnType methodName(parameters) { ... }).
+   Parameters: Java methods declare named parameters within parentheses.
+   Reference/Value Parameters: Java passes parameters by value, but for objects, the references are passed by value.
+   Return Values: Methods specify the return type using the returnType keyword and return values using the return statement.
+
+   Kotlin:
+   Function Syntax: Function declaration (fun functionName(parameters): returnType { ... }) and lambda expression ((parameters) -> { ... }).
+   Parameters: Kotlin functions declare named parameters within parentheses.
+   Reference/Value Parameters: Kotlin passes parameters by value.
+   Return Values: Functions specify the return type using the returnType keyword and return values using the return statement.
+
+   C:
+   Function Syntax: Function declaration (returnType functionName(parameters) { ... }).
+   Parameters: C functions declare named parameters within parentheses.
+   Reference/Value Parameters: C passes parameters by value.
+   Return Values: Functions can return values using the return statement.
+
+   C++:
+   Function Syntax: Function declaration (returnType functionName(parameters) { ... }).
+   Parameters: C++ functions declare named parameters within parentheses.
+   Reference/Value Parameters: C++ passes parameters by value by default, but you can use references (&) or pointers (*) to pass by reference.
+   Return Values: Functions can return values using the return statement.
+
+   Objective-C:
+   Function Syntax: Method declaration within a class (- (returnType)methodName:(parameterType)parameterName { ... }).
+   Parameters: Objective-C methods declare named parameters with colons (:) separating the parameter name and type.
+   Reference/Value Parameters: Objective-C passes object parameters by reference and primitive types by value.
+   Return Values: Methods specify the return type using parentheses and return values using the return statement.
+
+   Swift:
+   Function Syntax: Function declaration (func functionName(parameters) -> returnType { ... }) and closure ({ (parameters) -> returnType in ... }).
+   Parameters: Swift functions declare named parameters within parentheses.
+   Reference/Value Parameters: Swift passes parameters by value by default, but you can use the inout keyword to pass parameters by reference.
+   Return Values: Functions specify the return type using the -> returnType syntax and return values using the return statement.
+
+   Go (Golang):
+   Function Syntax: Function declaration (func functionName(parameters) returnType { ... }) 
+   and anonymous function (closure) (func(parameters) returnType { ... }).
+   Parameters: Go functions declare named parameters after the function name.
+   Reference/Value Parameters: Go passes parameters by value.
+   Return Values: Functions specify the return type after the parameters, and multiple return values can be declared. 
+   Return values are specified using the returnType keyword.
+
+   These are the general features and details related to function syntax, parameters, reference/value parameters, return values,
+   and other relevant aspects.
+
+
+   Let's consider a real-world problem of calculating the total price of a shopping cart containing multiple items,
+   with each item having a different price and quantity.
+   We can demonstrate the use of functions in different programming languages to solve this problem.
+
+   Problem: Calculate the total price of a shopping cart.
+
+   Requirements:
+
+   The shopping cart contains multiple items, each with a unique price and quantity.
+   The total price is calculated by multiplying the price of each item by its quantity and summing up the results.
+   The program should be able to handle different numbers of items in the cart.
+   Let's see how this problem can be solved using functions in different languages:
+  
+
+  1. JavaScript:
+  function calculateTotalPrice(cart) {
+  let totalPrice = 0;
+  for (let item of cart) {
+    totalPrice += item.price * item.quantity;
+  }
+  return totalPrice;
+}
+
+// Usage:
+const cart = [
+  { name: 'Item 1', price: 10, quantity: 2 },
+  { name: 'Item 2', price: 15, quantity: 1 },
+  { name: 'Item 3', price: 5, quantity: 3 }
+];
+
+const totalPrice = calculateTotalPrice(cart);
+console.log('Total Price:', totalPrice);
+
+
+2.Python:
+def calculate_total_price(cart):
+    total_price = 0
+    for item in cart:
+        total_price += item['price'] * item['quantity']
+    return total_price
+
+# Usage:
+cart = [
+    {'name': 'Item 1', 'price': 10, 'quantity': 2},
+    {'name': 'Item 2', 'price': 15, 'quantity': 1},
+    {'name': 'Item 3', 'price': 5, 'quantity': 3}
+]
+
+total_price = calculate_total_price(cart)
+print('Total Price:', total_price)
+
+
+3.Dart:
+double calculateTotalPrice(List<Map<String, dynamic>> cart) {
+  double totalPrice = 0;
+  for (var item in cart) {
+    totalPrice += item['price'] * item['quantity'];
+  }
+  return totalPrice;
+}
+
+// Usage:
+void main() {
+  List<Map<String, dynamic>> cart = [
+    {'name': 'Item 1', 'price': 10.0, 'quantity': 2},
+    {'name': 'Item 2', 'price': 15.0, 'quantity': 1},
+    {'name': 'Item 3', 'price': 5.0, 'quantity': 3}
+  ];
+
+  double totalPrice = calculateTotalPrice(cart);
+  print('Total Price: \$${totalPrice.toStringAsFixed(2)}');
+}
+
+
+4.PHP:
+function calculateTotalPrice($cart) {
+  $totalPrice = 0;
+  foreach ($cart as $item) {
+    $totalPrice += $item['price'] * $item['quantity'];
+  }
+  return $totalPrice;
+}
+
+// Usage:
+$cart = [
+  ['name' => 'Item 1', 'price' => 10.0, 'quantity' => 2],
+  ['name' => 'Item 2', 'price' => 15.0, 'quantity' => 1],
+  ['name' => 'Item 3', 'price' => 5.0, 'quantity' => 3]
+];
+
+$totalPrice = calculateTotalPrice($cart);
+echo 'Total Price: $' . number_format($totalPrice, 2);
+
+
+5. Java:
+public class ShoppingCart {
+  public static double calculateTotalPrice(List<Map<String, Object>> cart) {
+    double totalPrice = 0;
+    for (Map<String, Object> item : cart) {
+      double price = (double) item.get("price");
+      int quantity = (int) item.get("quantity");
+      totalPrice += price * quantity;
+    }
+    return totalPrice;
+  }
+
+  // Usage:
+  public static void main(String[] args) {
+    List<Map<String, Object>> cart = new ArrayList<>();
+    cart.add(Map.of("name", "Item 1", "price", 10.0, "quantity", 2));
+    cart.add(Map.of("name", "Item 2", "price", 15.0, "quantity", 1));
+    cart.add(Map.of("name", "Item 3", "price", 5.0, "quantity", 3));
+
+    double totalPrice = calculateTotalPrice(cart);
+    System.out.printf("Total Price: $%.2f", totalPrice);
+  }
+}
+
+
+6. Kotlin:
+fun calculateTotalPrice(cart: List<Map<String, Any>>): Double {
+  var totalPrice = 0.0
+  for (item in cart) {
+    val price = item["price"] as Double
+    val quantity = item["quantity"] as Int
+    totalPrice += price * quantity
+  }
+  return totalPrice
+}
+
+// Usage:
+fun main() {
+  val cart = listOf(
+    mapOf("name" to "Item 1", "price" to 10.0, "quantity" to 2),
+    mapOf("name" to "Item 2", "price" to 15.0, "quantity" to 1),
+    mapOf("name" to "Item 3", "price" to 5.0, "quantity" to 3)
+  )
+
+  val totalPrice = calculateTotalPrice(cart)
+  println("Total Price: $$totalPrice")
+}
+
+
+7. C:
+#include <stdio.h>
+
+double calculateTotalPrice(const struct Item *cart, int itemCount) {
+  double totalPrice = 0.0;
+  for (int i = 0; i < itemCount; ++i) {
+    totalPrice += cart[i].price * cart[i].quantity;
+  }
+  return totalPrice;
+}
+
+// Usage:
+struct Item {
+  const char *name;
+  double price;
+  int quantity;
+};
+
+int main() {
+  struct Item cart[] = {
+    {"Item 1", 10.0, 2},
+    {"Item 2", 15.0, 1},
+    {"Item 3", 5.0, 3}
+  };
+
+  int itemCount = sizeof(cart) / sizeof(cart[0]);
+  double totalPrice = calculateTotalPrice(cart, itemCount);
+  printf("Total Price: $%.2f\n", totalPrice);
+  return 0;
+}
+
+
+8. C++:
+#include <iostream>
+#include <vector>
+
+struct Item {
+  std::string name;
+  double price;
+  int quantity;
+};
+
+double calculateTotalPrice(const std::vector<Item>& cart) {
+  double totalPrice = 0.0;
+  for (const auto& item : cart) {
+    totalPrice += item.price * item.quantity;
+  }
+  return totalPrice;
+}
+
+// Usage:
+int main() {
+  std::vector<Item> cart = {
+    {"Item 1", 10.0, 2},
+    {"Item 2", 15.0, 1},
+    {"Item 3", 5.0, 3}
+  };
+
+  double totalPrice = calculateTotalPrice(cart);
+  std::cout << "Total Price: $" << totalPrice << std::endl;
+  return 0;
+}
+
+
+9. Objective-C:
+#import <Foundation/Foundation.h>
+
+double calculateTotalPrice(NSArray<NSDictionary *> *cart) {
+  double totalPrice = 0.0;
+  for (NSDictionary *item in cart) {
+    double price = [item[@"price"] doubleValue];
+    int quantity = [item[@"quantity"] intValue];
+    totalPrice += price * quantity;
+  }
+  return totalPrice;
+}
+
+// Usage:
+int main(int argc, const char * argv[]) {
+  @autoreleasepool {
+    NSArray<NSDictionary *> *cart = @[
+      @{@"name": @"Item 1", @"price": @10.0, @"quantity": @2},
+      @{@"name": @"Item 2", @"price": @15.0, @"quantity": @1},
+      @{@"name": @"Item 3", @"price": @5.0, @"quantity": @3}
+    ];
+    
+    double totalPrice = calculateTotalPrice(cart);
+    NSLog(@"Total Price: $%.2f", totalPrice);
+  }
+  return 0;
+}
+
+10. Swift:
+func calculateTotalPrice(cart: [[String: Any]]) -> Double {
+  var totalPrice = 0.0
+  for item in cart {
+    if let price = item["price"] as? Double, let quantity = item["quantity"] as? Int {
+      totalPrice += price * Double(quantity)
+    }
+  }
+  return totalPrice
+}
+
+// Usage:
+let cart: [[String: Any]] = [
+  ["name": "Item 1", "price": 10.0, "quantity": 2],
+  ["name": "Item 2", "price": 15.0, "quantity": 1],
+  ["name": "Item 3", "price": 5.0, "quantity": 3]
+]
+
+let totalPrice = calculateTotalPrice(cart: cart)
+print("Total Price: $\(String(format: "%.2f", totalPrice))")
+
+
+11. Go (Golang):
+package main
+
+import "fmt"
+
+func calculateTotalPrice(cart []map[string]interface{}) float64 {
+  totalPrice := 0.0
+  for _, item := range cart {
+    price := item["price"].(float64)
+    quantity := item["quantity"].(int)
+    totalPrice += price * float64(quantity)
+  }
+  return totalPrice
+}
+
+// Usage:
+func main() {
+  cart := []map[string]interface{}{
+    {"name": "Item 1", "price": 10.0, "quantity": 2},
+    {"name": "Item 2", "price": 15.0, "quantity": 1},
+    {"name": "Item 3", "price": 5.0, "quantity": 3},
+  }
+
+  totalPrice := calculateTotalPrice(cart)
+  fmt.Printf("Total Price: $%.2f\n", totalPrice)
+}
+
+ These examples demonstrate how the same real-world problem of calculating the total price of a shopping cart can be solved using
+ functions in JavaScript,Python, Dart, PHP, Java, Kotlin, C, C++, Objective-C, Swift, and Go.
+ Each language has its own syntax and conventions,
+ but the underlying concept of encapsulating the calculation logic within a function remains consistent across these languages.
